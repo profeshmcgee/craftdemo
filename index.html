@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Speaker Notes — Craft Demo — Abi Futch-Barrow</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --yellow: #F2C811;
+    --dark: #2B2B2B;
+    --mid: #555;
+    --light: #888;
+    --bg: #FAFAF8;
+    --card: #fff;
+    --border: #E8E6E1;
+    --accent-bg: #FFF9E0;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--dark);
+    line-height: 1.7;
+    font-size: 15px;
+    padding: 40px 20px 80px;
+  }
+  .container { max-width: 780px; margin: 0 auto; }
+  header {
+    text-align: center;
+    margin-bottom: 48px;
+    padding-bottom: 32px;
+    border-bottom: 3px solid var(--yellow);
+  }
+  header h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 32px;
+    color: var(--dark);
+    margin-bottom: 6px;
+  }
+  header .subtitle { color: var(--light); font-size: 14px; letter-spacing: 0.5px; }
+  .slide-section {
+    margin-bottom: 40px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .slide-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 16px 24px;
+    background: var(--dark);
+    color: #fff;
+  }
+  .slide-header-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .slide-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px; height: 28px;
+    background: var(--yellow);
+    color: var(--dark);
+    border-radius: 50%;
+    font-weight: 700;
+    font-size: 13px;
+    flex-shrink: 0;
+  }
+  .slide-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 18px;
+  }
+  .slide-body { padding: 24px; }
+  .timing {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--light);
+    background: #F4F3F0;
+    padding: 3px 10px;
+    border-radius: 12px;
+    margin-bottom: 16px;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+  }
+  .notes-label {
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--light);
+    margin-bottom: 8px;
+  }
+  .speak {
+    background: var(--accent-bg);
+    border-left: 3px solid var(--yellow);
+    padding: 14px 18px;
+    margin-bottom: 16px;
+    border-radius: 0 6px 6px 0;
+    font-size: 14.5px;
+    line-height: 1.75;
+    color: var(--dark);
+  }
+  .speak em { font-style: italic; color: var(--mid); }
+  .stage-direction {
+    font-size: 13px;
+    color: var(--light);
+    font-style: italic;
+    margin-bottom: 12px;
+  }
+  .transition {
+    font-size: 13px;
+    color: var(--mid);
+    font-style: italic;
+    padding-top: 8px;
+    border-top: 1px dashed var(--border);
+    margin-top: 12px;
+  }
+  h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 15px;
+    color: var(--dark);
+    margin: 20px 0 8px;
+  }
+  h3:first-of-type { margin-top: 0; }
+  .divider-note {
+    text-align: center;
+    color: var(--light);
+    font-style: italic;
+    padding: 20px;
+    font-size: 14px;
+  }
+  .key-point {
+    font-size: 13px;
+    color: var(--mid);
+    padding: 8px 14px;
+    background: #F4F3F0;
+    border-radius: 6px;
+    margin-top: 10px;
+  }
+  .key-point strong { color: var(--dark); }
+  .copy-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    background: var(--dark);
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    letter-spacing: 0.3px;
+  }
+  .copy-btn:hover { background: #444; }
+  .copy-btn.copied {
+    background: #2a7d3f;
+  }
+  .copy-btn svg { width: 14px; height: 14px; }
+  @media print {
+    body { padding: 20px; font-size: 13px; }
+    .slide-section { break-inside: avoid; page-break-inside: avoid; }
+    .slide-header { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+  <h1>Speaker Notes</h1>
+  <div class="subtitle">Onboarding Specialist Craft Demonstration &nbsp;·&nbsp; Intuit Mailchimp &nbsp;·&nbsp; March 23, 2026</div>
+</header>
+<!-- ======== SLIDE 1 ======== -->
+<div class="slide-section">
+  <div class="slide-header">
+    <div class="slide-header-left">
+      <span class="slide-number">1</span>
+      <span class="slide-title">Title Slide — Onboarding Specialist</span>
+    </div>
+  </div>
+  <div class="slide-body">
+    <span class="timing">~30 seconds</span>
+    <p class="stage-direction">Let the room settle. Smile. Breathe. The big yellow Mailchimp branding sets the tone -- you belong here.</p>
+    <div class="speak">
+      Hi everyone, I'm Abi Futch-Barrow. Thank you so much for having me today -- I've been really looking forward to this. I'm going to walk you through a little about who I am and how I got here, share some portfolio examples from my work, and then we'll dig into the GreenLeaf Goods case study together.
+    </div>
+    <p class="transition">Transition: "Let's jump in."</p>
+  </div>
+</div>
+<!-- ======== SLIDE 2 ======== -->
+<div class="slide-section">
+  <div class="slide-header">
+    <div class="slide-header-left">
+      <span class="slide-number">2</span>
+      <span class="slide-title">I'm a People Person!</span>
+    </div>
+  </div>
+  <div class="slide-body">
+    <span class="timing">~1.5 minutes</span>
+    <p class="stage-direction">This slide has the Henri Boynton quote and your trait badges. Let the quote do some of the work -- don't read it verbatim, just reference it.</p>
+    <div class="speak">
+      I wanted to start here because this is the thing that connects everything I've done. The quote on this slide is from Henri Boynton, and it means a lot to me because it captures something I've heard in different words from almost every client and colleague I've worked with. I'm the person who stays in the loop, keeps people connected, and finds ways to make things work for everyone.
+    </div>
+    <div class="speak">
+      The traits you see here -- empathy, advocacy, collaboration, honesty -- those aren't aspirational. They're what people keep saying about me when I ask for feedback. I lead with listening, and the rest follows from there.
+    </div>
+    <p class="transition">Transition: "So what does that actually look like in practice?"</p>
+  </div>
+</div>
+<!-- ======== SLIDE 3 ======== -->
+<div class="slide-section">
+  <div class="slide-header">
+    <div class="slide-header-left">
+      <span class="slide-number">3</span>
+      <span class="slide-title">Customer Obsession · Intentional Communication · Purposeful Process</span>
+    </div>
+  </div>
+  <div class="slide-body">
+    <span class="timing">~1.5 minutes</span>
+    <p class="stage-direction">This is the values slide. Three pillars with "People set up to succeed" at the bottom. Keep it grounded -- connect each one to something real.</p>
+    <div class="speak">
+      These three things are what I keep coming back to in every role I've been in. Customer obsession -- I'm the person who's going to champion for the customer. If something isn't working for them, I want to get to the bottom of it and actually solve it. That's always been the most rewarding part of my work.
+    </div>
+    <div class="speak">
+      Intentional communication -- I believe in being upfront with people. If I see a gap between what a client expects and what they're getting, I'd rather get ahead of it early so we can fix it together than let it become a bigger problem.
+    </div>
+    <div class="speak">
+      And purposeful process -- the best organizations are built on trust, clarity, and processes that actually serve people. Not process for the sake of process, but systems that make it easier for everyone to do their best work. When you get all three of those right, the result is what you see at the bottom of this slide: people set up to succeed.
+    </div>
+    <p class="transition">Transition: "Let me show you how that's played out across my career."</p>
+  </div>
+</div>
+<!-- ======== SLIDE 4 ======== -->
+<div class="slide-section">
+  <div class="slide-header">
+    <div class="slide-header-left">
+      <span class="slide-number">4</span>
+      <span class="slide-title">A Career Built on Making People Feel Supported from Day One</span>
+    </div>
+  </div>
+  <div class="slide-body">
+    <span class="timing">~2.5 minutes</span>
+    <p class="stage-direction">This slide shows Brain Bytes and Social Asking logos, plus your skill areas. This is where you tell your career story.</p>
+    <h3>How I Got Here</h3>
+    <div class="speak">
+      So my path here wasn't exactly a straight line, which I think is actually the thing that makes me good at this kind of work. I co-founded a SaaS startup called Social Asking, and that's really where I fell in love with onboarding. There was no existing process when I started -- no playbook, no templates for check-ins, no system for surfacing product feedback. I built all of it. And building it from nothing turned out to be the best way to learn it, because you can't just go through the motions when there are no motions yet.
+    </div>
+    <div class="speak">
+      From there I moved into agency work at Brain Bytes Creative, where I rounded out my project management and digital marketing skills -- website builds, SEO retainers, PPC. Through all of it, the onboarding and strategic side was always the part I gravitated toward most.
+    </div>
+    <h3>Why Intuit, Why This Role</h3>
+    <div class="speak">
+      My career has spanned customer service, customer experience, and success -- and I've always enjoyed seeing my work make a real impact, not getting lost in the shuffle. Mailchimp's customers are the same kind of people I've always been best at helping -- small teams, real businesses, trying to grow. And onboarding is the work I keep coming back to. I want it to be the whole job, not just a piece of one.
+    </div>
+    <p class="key-point"><strong>Keep it conversational here.</strong> The slide already shows the logos and skills. You're adding the human story behind the bullet points.</p>
+    <p class="transition">Transition: "So let me show you what that looks like in practice."</p>
+  </div>
+</div>
+<!-- ======== SLIDE 5 ======== -->
+<div class="slide-section">
+  <div class="slide-header">
+    <div class="slide-header-left">
+      <span class="slide-number">5</span>
+      <span class="slide-title">Portfolio Examples Divider</span>
+    </div>
+  </div>
+  <div class="slide-body">
+    <p class="divider-note">Transition slide -- click through. "Excerpts from my experiences."</p>
+  </div>
+</div>
+<!-- ======== SLIDE 6 ======== -->
+<div class="slide-section">
+  <div class="slide-header">
+    <div class="slide-header-left">
+      <span class="slide-number">6</span>
+      <span class="slide-title">£200K Increased Kit Sales — Bolton Wanderers</span>
+    </div>
+  </div>
+  <div class="slide-body">
+    <span class="timing">~7-8 minutes</span>
+    <p class="stage-direction">This is your "I know how to win over skeptics" story. The slide shows the stadium photo, the kit vote UI, and that big £200K number. It maps directly to the Head of Commerce in the case study -- make that connection obvious later.</p>
+    <h3>The Hesitation</h3>
+    <div class="speak">
+      So this is about Bolton Wanderers Football Club -- a professional football club in England. They had this idea to let fans vote on kit designs, which sounds fun, right? But leadership was genuinely nervous about it. No club had done this before, and they were worried fans would troll the whole thing. They needed confidence it would actually work before they committed.
+    </div>
+    <h3>The Approach</h3>
+    <div class="speak">
+      Instead of pushing them straight into the kit survey, which was the high-stakes thing, I helped set up a smaller trial first -- matchday experience surveys. Low stakes, high engagement. Let fans weigh in on things like food, atmosphere, the overall experience. And what happened was fans took it seriously. The data was clean, the engagement was real, and once leadership could see that with their own eyes, they were ready to go bigger.
+    </div>
+    <h3>The Result</h3>
+    <div class="speak">
+      The kit vote went live, fans loved it, and it drove over 200,000 pounds more in kit presales compared to the previous year. The board fully bought in, and the Head of Marketing who championed it ended up getting promoted. That's what happens when you earn buy-in the right way -- everyone wins.
+    </div>
+    <p class="key-point"><strong>Tee up the case study:</strong> "I'm going to come back to this story later, because the dynamic with GreenLeaf's Head of Commerce is really similar."</p>
+  </div>
+</div>
+<!-- ======== SLIDE 7 ======== -->
+<div class="slide-section">
+  <div class="slide-header">
+    <div class="slide-header-left">
+      <span class="slide-number">7</span>
+      <span class="slide-title">Onboarded and Supported iSAW & ASU</span>
+    </div>
+  </div>
+  <div class="slide-body">
+    <span class="timing">~7-8 minutes</span>
+    <p class="stage-direction">This is your "I know how to onboard" story. The slide shows the iSAW / Social Asking branding and the "Make Your Voice Count" banner. Ground it in the real details.</p>
+    <h3>Set the Scene</h3>
+    <div class="speak">
+      This is about a client I onboarded and supported at Social Asking -- iSAW, which is a nonprofit advancing gender equality in STEM, and they partner with Arizona State University. They'd been running workshops for three years at that point, over a thousand students through the program, and they came to us with a really specific need. They didn't just want to know if students liked the workshops. They wanted to know if the workshops were actually changing how students thought about gender bias in STEM. That's a much harder thing to measure.
+    </div>
+    <h3>What I Actually Did</h3>
+    <div class="speak">
+      I partnered with iSAW and ASU to set up pre- and post-workshop surveys through our platform. The thing that made Social Asking different was that it gave students a space to engage honestly -- no social media noise, no pressure to perform for peers. Just real responses.
+    </div>
+    <div class="speak">
+      And the results were genuinely meaningful. Students were recognizing biases they hadn't seen before. The data showed the program was working, and it gave iSAW something concrete they could take to their funders and say "this is the impact." They actually featured the partnership in a published article, which was a pretty big deal for us as a small company.
+    </div>
+    <h3>Connect It to This Role</h3>
+    <div class="speak">
+      The reason I'm sharing this one is because it's a good example of what onboarding looks like when you treat it as a partnership instead of a setup checklist. iSAW didn't just need to learn the tool -- they needed someone who understood what they were trying to accomplish, could help them design the right approach, and then stuck around to make sure it actually delivered. That's the kind of onboarding I want to do here.
+    </div>
+    <p class="key-point"><strong>If asked about scale:</strong> Social Asking was small, so every client relationship was high-touch. That's actually a strength -- I know what real partnership looks like because I couldn't hide behind automation.</p>
+    <p class="transition">Transition: "Alright, let's get into the case study."</p>
+  </div>
+</div>
+<!-- ======== SLIDE 8 ======== -->
+<div class="slide-section">
+  <div class="slide-header">
+    <div class="slide-header-left">
+      <span class="slide-number">8</span>
+      <span class="slide-title">Case Study Divider — GreenLeaf Goods</span>
+    </div>
+  </div>
+  <div class="slide-body">
+    <p class="divider-note">Transition slide -- click through.</p>
+  </div>
+</div>
+<!-- ======== SLIDE 9 ======== -->
+<div class="slide-section">
+  <div class="slide-header">
+    <div class="slide-header-left">
+      <span class="slide-number">9</span>
+      <span class="slide-title">Client Discovery — Find Their True Pain Points</span>
+    </div>
+  </div>
+  <div class="slide-body">
+    <span class="timing">~4-5 minutes</span>
+    <p class="stage-direction">Walk through each question with intention. Don't just read them -- explain why each one matters. The slide lists all five questions with their rationale.</p>
+    <h3>Question 1: What does success look like in 6 months?</h3>
+    <div class="speak">
+      This is always my first question because it gets past the surface. When someone says "we want to grow," that could mean a dozen things. Is it revenue? Retention? Brand awareness? All three? I need to know what we're actually building toward before I start recommending anything.
+    </div>
+    <h3>Question 2: Walk me through the current customer journey.</h3>
+    <div class="speak">
+      Before I build automation on top of anything, I want to understand the journey that already exists. Where are the gaps? Where are things working? You'd be surprised how often clients haven't actually mapped this out themselves, so doing it together in the kickoff becomes really valuable.
+    </div>
+    <h3>Question 3: What's been tried before that didn't stick?</h3>
+    <div class="speak">
+      This is the question that tells me where the skepticism is really coming from. If the Head of Commerce had a bad experience with a previous tool, or if the team tried to set up automations before and it fell apart, I need to know that. Because I'm going to run into that same wall if I don't understand what's behind it.
+    </div>
+    <h3>Question 4: Who's in Mailchimp day-to-day, and how comfortable are they?</h3>
+    <div class="speak">
+      This one's practical. If I don't right-size the training, I'll either bore someone who's already comfortable or completely overwhelm someone who's never been in the platform. And with a small team that's already stretched thin, overwhelming them is the fastest way to lose them.
+    </div>
+    <h3>Question 5: What would make the Head of Commerce say "this was worth it" in 90 days?</h3>
+    <div class="speak">
+      This is the one that ties it all together. It gives us a concrete win condition -- something we can actually measure -- and then we build the entire roadmap around getting there. If I don't have this answer, I'm guessing at what matters. And guessing is how things go sideways.
+    </div>
+  </div>
+</div>
+<!-- ======== SLIDE 10 ======== -->
+<div class="slide-section">
+  <div class="slide-header">
+    <div class="slide-header-left">
+      <span class="slide-number">10</span>
+      <span class="slide-title">First 30 Days — Get the Foundation Right</span>
+    </div>
+  </div>
+  <div class="slide-body">
+    <span class="timing">~3-4 minutes</span>
+    <p class="stage-direction">The slide has two columns: Technical Setup and Quick Wins, both numbered 1-3 with the GreenLeaf logo. Walk through each column.</p>
+    <h3>Technical Setup</h3>
+    <div class="speak">
+      The first 30 days are about getting the foundation right. On the technical side, we're connecting Shopify so customer and order data syncs automatically -- no more manual work. We're cleaning that contact list, because sending to 10,000 unverified contacts is a recipe for deliverability problems. And we're setting up tagging so we actually know who our customers are before we send them anything.
+    </div>
+    <h3>Quick Wins</h3>
+    <div class="speak">
+      On the quick wins side -- and this is important -- we're getting a Welcome email series and Abandoned Cart emails live as early as possible. These are the things that start recovering revenue almost immediately, and they're the kind of early wins that build confidence with the whole team. The POC sees results, the Head of Commerce sees revenue, and nobody had to do anything too complicated to get there. We also get the team a walkthrough so they're comfortable in the tool and not feeling like this is something being done to them.
+    </div>
+  </div>
+</div>
+<!-- ======== SLIDE 11 ======== -->
+<div class="slide-section">
+  <div class="slide-header">
+    <div class="slide-header-left">
+      <span class="slide-number">11</span>
+      <span class="slide-title">First 60 Days — Show It's Working</span>
+    </div>
+  </div>
+  <div class="slide-body">
+    <span class="timing">~3-4 minutes</span>
+    <p class="stage-direction">Same two-column layout. This phase is about proving value and optimizing.</p>
+    <h3>Optimization</h3>
+    <div class="speak">
+      Phase two is about proving it. We look at what's performing and start tweaking -- timing, subject lines, content. We build audience segments so the right message is hitting the right customer, and campaigns start feeling more personal. We set up a post-purchase sequence to turn first-time buyers into repeat customers.
+    </div>
+    <h3>Proving It to the Skeptic</h3>
+    <div class="speak">
+      And this is where the skeptic becomes important. I'm pulling actual cart recovery revenue and putting it in front of the Head of Commerce. Not open rates, not click rates -- revenue. Money that came back because of something we built. That's the language that lands. And by this point, the cart and welcome sequences should be performing stronger in week two than week one -- that upward trend is a powerful thing to be able to show someone who wasn't sold at the start.
+    </div>
+  </div>
+</div>
+<!-- ======== SLIDE 12 ======== -->
+<div class="slide-section">
+  <div class="slide-header">
+    <div class="slide-header-left">
+      <span class="slide-number">12</span>
+      <span class="slide-title">First 90 Days — Prove It Was Worth It</span>
+    </div>
+  </div>
+  <div class="slide-body">
+    <span class="timing">~3-4 minutes</span>
+    <p class="stage-direction">The slide title says "Prove It Was Worth It" -- lean into that framing. This is the handoff phase.</p>
+    <h3>Technical Setup</h3>
+    <div class="speak">
+      The last phase is about making myself less needed, which I think is the sign of a good onboarding. We're looping in any remaining integrations with the right Mailchimp support resources, building out reporting so results are visible and easy to share upward, and documenting processes and templates so the team owns what we built together.
+    </div>
+    <h3>Quick Wins</h3>
+    <div class="speak">
+      By day 90, the customer journey should feel connected -- no gaps, no dropped handoffs. The Head of Commerce has a clear picture of what's working and why. And GreenLeaf is self-sufficient and set up to keep growing. They don't need me in the room anymore -- they just know where to find me if something comes up.
+    </div>
+    <p class="key-point"><strong>Key framing:</strong> This isn't just a technical implementation -- it's a change management challenge. The 90-day arc is designed around earning trust as much as building automations.</p>
+  </div>
+</div>
+<!-- ======== SLIDE 13 ======== -->
+<div class="slide-section">
+  <div class="slide-header">
+    <div class="slide-header-left">
+      <span class="slide-number">13</span>
+      <span class="slide-title">We Can Prove It — Set Up Is Easy with Mailchimp</span>
+    </div>
+  </div>
+  <div class="slide-body">
+    <span class="timing">~2-3 minutes</span>
+    <p class="stage-direction">This slide has the upward growth chart with the four setup features and the projected metrics (40% cart recovery, 35% open rate, 3x ROI, 1 week time to value). This is your confidence slide -- speak to WHY these numbers are achievable, not just what they are.</p>
+    <h3>The Approach</h3>
+    <div class="speak">
+      So let's talk about the Head of Commerce, because he's the person who's going to decide whether this whole thing sticks. My approach isn't to sell him on Mailchimp's features. He doesn't care about features right now -- he cares about whether this is going to be worth his team's time.
+    </div>
+    <div class="speak">
+      What this slide shows is that Mailchimp makes the setup part easy -- one-click brand import, automated list cleaning, sequence templates, dedicated support. But the numbers on the right are what matter to someone like the Head of Commerce. A 40% increase in cart recovery, a 35% increase in welcome email open rates, 3x ROI within 90 days, and time to value in just one week. Those aren't hypothetical -- that's what's achievable when the onboarding is done right.
+    </div>
+    <h3>I've Been Here Before</h3>
+    <div class="speak">
+      And this is where the Bolton Wanderers story connects. Same dynamic -- leadership had the idea, but they were nervous. Instead of pushing for the big thing right away, I helped set up a smaller trial that built confidence. Once they could see the data, they were ready. That's exactly what I'd do here. Get the Abandoned Cart emails running, show the Head of Commerce what they recovered in the first two weeks, and let the results do the convincing.
+    </div>
+    <p class="key-point"><strong>If asked about failure scenarios:</strong> "If the data doesn't look good in the first two weeks, that's actually still useful -- it tells us what to adjust. The worst thing would be waiting 90 days to check."</p>
+  </div>
+</div>
+<!-- ======== SLIDE 14 ======== -->
+<div class="slide-section">
+  <div class="slide-header">
+    <div class="slide-header-left">
+      <span class="slide-number">14</span>
+      <span class="slide-title">Hold Your Fire. Stay the Course.</span>
+    </div>
+  </div>
+  <div class="slide-body">
+    <span class="timing">~5-6 minutes</span>
+    <p class="stage-direction">Two columns: "Clean List First" and "Support the Team." Be honest here -- this is where your real experience shows. You've actually lived through both of these.</p>
+    <h3>Clean List First</h3>
+    <div class="speak">
+      The first thing I'd be watching for is the temptation to start sending before we've cleaned that list. They've got 10,000 contacts that haven't been touched in a year. If we blast all of them right away, bounces and spam complaints are going to damage their sender reputation, and that is genuinely hard to come back from.
+    </div>
+    <div class="speak">
+      I've lived through this one. At Social Asking, early on, we sent through SendGrid to an unclean list and our emails started landing in spam. I had to rebuild our reputation with careful segmentation, slow drip sends, and honestly just time. It was a painful lesson, but it's one I never had to learn twice. So with GreenLeaf, we validate the list before anything goes out. We start with the most engaged contacts, and we warm up the domain gradually. Trust is harder to rebuild than it is to protect.
+    </div>
+    <h3>Support the Team</h3>
+    <div class="speak">
+      The second thing I'd watch for is adoption dropping off. Their team is already stretched thin. If Mailchimp starts feeling like one more thing on an already full to-do list, they'll stop logging in and everything we set up just sits there.
+    </div>
+    <div class="speak">
+      I saw a version of this at Brain Bytes. Some of our marketing clients got overwhelmed by the scope of their retainer. They'd signed up for this big package and then just... froze. I learned to scale back, focus on what they could actually absorb, and layer in more once they had their footing. Same idea here -- schedule regular check-ins, not just milestone reviews. Celebrate early wins loudly. Remind the team of the 90-day win condition we set together. And remember: one bad campaign isn't a failed strategy. Adoption doesn't die at the start. It dies in the middle, when nobody's paying attention. That's where I stay closest.
+    </div>
+  </div>
+</div>
+<!-- ======== SLIDE 15 ======== -->
+<div class="slide-section">
+  <div class="slide-header">
+    <div class="slide-header-left">
+      <span class="slide-number">15</span>
+      <span class="slide-title">Thank You</span>
+    </div>
+  </div>
+  <div class="slide-body">
+    <span class="timing">~1 minute</span>
+    <div class="speak">
+      Thank you all for your time today. I really enjoyed putting this together, and I'm excited about this role. I'd love to answer any questions you have -- about the case study, about my experience, about anything we covered today. I'm an open book.
+    </div>
+    <p class="key-point"><strong>If there's silence:</strong> You can bridge with "One thing I didn't get to cover that I'd love to talk about is..." and bring up something relevant from your experience that didn't fit neatly into a slide.</p>
+    <p class="key-point" style="margin-top: 8px;"><strong>GenAI disclosure (if asked):</strong> "I used Claude to help me brainstorm structure, pressure-test my talking points, and refine the language on the slides. The strategy, the stories, and the approach are all mine -- the AI helped me organize and polish."</p>
+  </div>
+</div>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.slide-section').forEach(function(section) {
+    var header = section.querySelector('.slide-header');
+    var body = section.querySelector('.slide-body');
+    if (!body) return;
+    var speakBlocks = body.querySelectorAll('.speak');
+    if (speakBlocks.length === 0) return;
+    var text = Array.from(speakBlocks).map(function(el) {
+      return el.textContent.trim();
+    }).join('\n\n');
+    var btn = document.createElement('button');
+    btn.className = 'copy-btn';
+    btn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span>Copy notes</span>';
+    btn.addEventListener('click', function() {
+      navigator.clipboard.writeText(text).then(function() {
+        btn.classList.add('copied');
+        btn.querySelector('span').textContent = 'Copied!';
+        setTimeout(function() {
+          btn.classList.remove('copied');
+          btn.querySelector('span').textContent = 'Copy notes';
+        }, 2000);
+      });
+    });
+    header.appendChild(btn);
+  });
+});
+</script>
+</body>
+</html>
