@@ -518,11 +518,12 @@ document.addEventListener('DOMContentLoaded', function() {
     var header = section.querySelector('.slide-header');
     var body = section.querySelector('.slide-body');
     if (!body) return;
-    var speakBlocks = body.querySelectorAll('.speak');
+    var speakBlocks = body.querySelectorAll('h3, .speak');
     if (speakBlocks.length === 0) return;
     var text = Array.from(speakBlocks).map(function(el) {
+      if (el.tagName === 'H3') return '\n' + el.textContent.trim().toUpperCase() + '\n';
       return el.textContent.trim();
-    }).join('\n\n');
+    }).join('\n\n').trim();
     var btn = document.createElement('button');
     btn.className = 'copy-btn';
     btn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span>Copy notes</span>';
